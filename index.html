@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>ผมมีไรให้</title>
+     <style>
+          body {
+               margin: 0;
+               height: 100vh;
+               display: grid;
+               place-items: center;
+               background-color: #F5F5F5;
+          }
+          .envelope {
+               position: relative;
+               width: 260px;
+               height: 170px;
+               cursor: pointer;
+               perspective: 1000px;
+               transition: opacity 0.4s ease;
+          }
+          .back {
+               position: absolute;
+               inset: 0;
+               background-color: #E3B778;
+               border-radius: 6px;
+               z-index: 1;
+          }
+          .paper {
+               position: absolute;
+               bottom: 12px;
+               left: 50%;
+               width: 90%;
+               height: 85%;
+               background-color: #C6D9E0;
+               transform: translateX(-50%);
+               transition: transform 0.7s ease;
+               border-radius: 4px;
+               z-index: 2;
+          }
+          .L-triangle {
+               position: absolute;
+               inset: 0;
+               background-color: #D6A35F;
+               clip-path: polygon(0 100%, 0 0, 100% 100%);
+               z-index: 4;
+          }
+          .R-triangle {
+               position: absolute;
+               inset: 0;
+               background-color: #D6A35F;
+               clip-path: polygon(100% 100%, 0 100%, 100% 0);
+               z-index: 4;
+          }
+          .flap {
+               position: absolute;
+               inset: 0;
+               background-color: #C99852;
+               clip-path: polygon(0 0, 50% 55%, 100% 0);
+               transform-origin: top;
+               transition: transform 0.6s ease;
+               z-index: 5;
+          }
+          .envelope.open .flap {
+               transform: rotateX(180deg);
+               z-index: 2;
+          }
+          .envelope.open .paper {
+               transform: translateX(-50%) translateY(-60px);
+               z-index: 3;
+          }
+          .paper.dissolve {
+               opacity: 0;
+               transform: translateX(-50%) translateY(-60px) scale(1.05);
+               transition:
+                    opacity 0.8s ease,
+                    transform 0.8s ease;
+               z-index: 6;
+          }
+          .paper.expand {
+               position: fixed;
+               top: 50%;
+               left: 50%;
+               width: 90vw;
+               height: 90vh;
+               max-width: 100%;
+               max-height: 100%;
+               background-color: #C6D9E0;
+               opacity: 1;
+               transform: translate(-50%, -50%);
+               transition:
+                    width 0.9s ease,
+                    height 0.9s ease,
+                    opacity 0.4s ease;
+                    transform: 0.9s ease;
+               z-index: 10;
+               border-radius: 6px;
+          }
+          .envelope.disabled {
+               opacity: 0;
+               pointer-events: none;
+          }
+     </style>
+</head>
+<body>
+     <div class="envelope" id="envelope">
+          <div class="back"></div>
+          <div class="paper" id="paper"></div>
+          <div class="L-triangle"></div>
+          <div class="R-triangle"></div>
+          <div class="flap"></div>
+     </div>
+
+     <script>
+          const envelope = document.getElementById("envelope");
+          const paper = document.getElementById("paper");
+          envelope.addEventListener("click", () => {
+               if (envelope.classList.contains("open")) return;
+               envelope.classList.add("open");
+               setTimeout(() => {
+                    paper.classList.add("dissolve");
+               }, 700);
+               setTimeout(() => {
+                    paper.classList.remove("dissolve");
+                    paper.classList.add("expand");
+                    envelope.classList.add("disabled");
+               }, 1500);
+               setTimeout(() => {
+                    window.location.href = "hbd2.html"
+               }, 2400);
+          })
+     </script>
+</body>
+</html>
