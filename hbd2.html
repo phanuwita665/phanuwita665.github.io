@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>HBD 2 u kubbb</title>
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+          @font-face {
+               font-family: "Hangyaboly";
+               src: url(Hangyaboly.ttf);
+          }
+
+          * {
+               margin: 0;
+               padding: 0;
+               box-sizing: border-box;
+          }
+          body {
+               background-color: #C6D9E0;
+               background-image: url("images/background.png");
+               background-position: bottom;
+               background-repeat: no-repeat;
+               background-size: cover;
+               min-height: 100vh;
+          }
+          .belated {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               padding: 35px;
+          }
+          h1 {
+               font-family: "Hangyaboly";
+               font-size: 50px;
+               transform: rotate(-10deg);
+               opacity: 0;
+               animation: showText 1s ease forwards;
+               animation-delay: 0.5s;
+          }
+          .shiba {
+               width: 200px;
+               opacity: 0;
+               transform: translateX(150px);
+               animation: slideIn 1s ease forwards;
+               animation-delay: 1.8s;
+          }
+          .beam {
+               display: block;
+               margin: 30px auto;
+               width: 235px;
+               border-radius: 20px;
+               opacity: 0;
+               animation: fadeIn 1s ease forwards;
+               animation-delay: 3.2s;
+          }
+          .wish-u {
+               font-family: "Itim";
+               font-weight: lighter;
+               font-size: xx-large;
+               text-align: center;
+               margin-top: 40px;
+               line-height: 1.2;
+               opacity: 0;
+               animation: fadeInSlow 2s ease forwards;
+               animation-delay: 4.6s;
+          }
+          .tap-area {
+               position: fixed;
+               inset: 0;
+               cursor: pointer;
+               z-index: 10;
+          }
+          @keyframes showText {
+               to {opacity: 1;}
+          }
+          @keyframes slideIn {
+               to {
+                    opacity: 1;
+                    transform: translateX(0);
+               }
+          }
+          @keyframes fadeIn {
+               to {opacity: 1;}
+          }
+          @keyframes fadeInSlow {
+               from {opacity: 0;}
+               to {opacity: 1;}
+          }
+     </style>
+</head>
+<body>
+     <div class="belated">
+          <h1>Belated<br>Happy<br>Birthday</h1>
+          <img src="images/shiba.png" alt="shiba" class="shiba">
+     </div>
+     <img src="images/beam.jpg" alt="beam" class="beam">
+     <h2 class="wish-u">
+          ขอให้ได้รับสิ่งดี ๆ<br>
+          ตลอดวัย 24 ขวบนะคั้บ
+     </h2>
+     <div class="tap-area" onclick="goNext()"></div>
+
+     <script>
+          let canTap = false;
+          setTimeout(() => {
+             canTap = true  
+          }, 5000);
+          function goNext() {
+               if (!canTap) return;
+               window.location.href = "hbd3.html"
+          }
+     </script>
+</body>
+</html>

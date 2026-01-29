@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>โชคดีนะคุนน</title>
+     <style>
+          @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+          * {
+               margin: 0;
+               padding: 0;
+          }
+          body {
+               background-image: url("images/purplepastel.png");
+               background-position: center;
+               background-size: cover;
+               min-height: 100vh;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+          }
+          .card {
+               position: relative;
+               display: flex;
+               justify-content: center;
+               align-items: center;
+               animation: showCard 0.6s ease-in;
+          }
+          .sheet {
+               position: absolute;
+               width: 100%;
+               height: 350%;
+               z-index: 1;
+          }
+          h1 {
+               font-size: 9px;
+               font-family: "Itim";
+               font-weight: lighter;
+               text-align: center;
+               padding: 20px;
+               z-index: 2;
+          }
+          .line1 {
+               opacity: 0;
+               display: block;
+               animation: fadeIn 1s ease forwards;
+          }
+          .rest {
+               opacity: 0;
+               display: block;
+               animation: fadeIn 1s ease forwards;
+               animation-delay: 3.5s;
+          }
+          .sticker {
+               position: absolute;
+               width: 100px;
+               height: auto;
+               bottom: 40px;
+               right: 30px;
+               z-index: 3;
+               opacity: 0;
+               animation: showShiba 1s ease-in forwards;
+               animation-delay: 0.3s;
+          }
+          .flower {
+               position: absolute;
+               width: 120px;
+               height: auto;
+               bottom: 80px;
+               left: 35px;
+               z-index: 3;
+               opacity: 0;
+               animation: showShiba 1s ease-in forwards;
+               animation-delay: 10s;
+          }
+          @keyframes showCard {
+               from {opacity: 0;}
+               to {opacity: 1;}
+          }
+          @keyframes fadeIn {
+               to {opacity: 1;}
+          }
+          @keyframes showShiba {
+               to {opacity: 1;}
+          }
+     </style>
+</head>
+<body>
+     <div class="card">
+          <h1>
+               <span class="line1">
+                    ถึงว่าที่เภสัชกรที่เก่งและน่ารักที่สุดในประเทศไทย<br><br></span>
+               <span class="rest">
+                    ขอให้คุณมีความสุขและมียิ้มน่ารัก ๆ ในทุกวันนะคั้บบ<br>
+                    ขอให้การเรียนไม่กดดันคุณเกินไป ขอให้ที่ฝึกงานใจดีกับคุณเยอะ ๆ<br>
+                    ขอให้คุณได้กินของอร่อยบ่อย ๆ ขอให้คุณกับครอบครัวคุณสุขภาพแข็งแรงมั่กๆ<br>
+                    และขอให้คุณมีแต่คนรอบข้างที่จริงใจและเป็นกำลังใจให้คุณเสมอ<br>
+                    ไม่ว่าตอนนี้คุณจะเจอเรื่องอะไรอยู่ ผมขอให้ทุกอย่างค่อย ๆ ผ่านไปได้ด้วยดี<br>
+                    ผมเอาใจช่วยคุณเสมอนะะ จากที่ไกล ๆ ด้วยความหวังดี 🌻</span>
+          </h1>
+          <img src="images/sheet.png" alt="sheet" class="sheet">
+     </div>
+     <img src="images/shibasticker.png" alt="sticker" class="sticker">
+     <img src="images/flower.jpg" alt="flower" class="flower">
+</body>
+</html>
